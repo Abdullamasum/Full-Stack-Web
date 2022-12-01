@@ -1,0 +1,19 @@
+{
+  "name": "full-stack-web",
+  "version": "1.0.0",
+  "description": "Frontend-html,css,java-cript\r Backend- node & express js\r DB- mysql",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Abdullamasum/Full-Stack-Web.git"
+  },
+  "author": "Anjan Masum Rashid",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Abdullamasum/Full-Stack-Web/issues"
+  },
+  "homepage": "https://github.com/Abdullamasum/Full-Stack-Web#readme"
+}

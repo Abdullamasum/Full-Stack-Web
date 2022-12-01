@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Finder</title>
+
+
+</head>
+<style>
+  /*set border to the form*/
+
+  form {
+    border: 3px solid #f1f1f1;
+    background-color: #f1f1f1;
+    margin: auto;
+  }
+  /*assign full width inputs*/
+
+  input[type=text],
+  input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  /*set a style for the buttons*/
+
+  button {
+    background-color: #0e5981;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+  /* set a hover effect for the button*/
+
+  button:hover {
+    opacity: 0.8;
+  }
+  /*set extra style for the cancel button*/
+
+
+
+  .container {
+    padding: 16px;
+  }
+  /*set the forgot password text*/
+
+
+</style>
+<body>
+<!--Step 1 : Adding HTML-->
+<form>
+  <h2 style="text-align: center;">Login Form</h2>
+
+  <div class="container">
+    <label><b>Username</b></label>
+    <input id="name" type="text" placeholder="Enter Username" name="name" required>
+
+    <label><b>Password</b></label>
+    <input id="pass" type="password" placeholder="Enter Password" name="pass" required>
+
+    <button id="submit">Login</button>
+    <input type="checkbox" checked="checked"> Remember me
+  </div>
+
+
+</form>
+
+
+
+</body>
+</html>
