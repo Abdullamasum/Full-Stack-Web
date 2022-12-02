@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/main.css" />
+    <title>Contact</title>
+  </head>
+  <body>
+    <section
+      id="contact"
+      class="p-6 my-12 scroll-mt-16 widescreen:section-min-height tallscreen:section-min-height"
+    >
+      <h2
+        class="text-4xl font-bold text-center sm:text-5xl mb-6 text-slate-900 dark:text-white"
+      >
+        Contact Us
+      </h2>
+      <form
+        action="index.html"
+        class="max-w-4xl mx-auto text-2xl sm:text-3xl flex flex-col items-left gap-4"
+      >
+        <label for="subject">Subject:</label>
+        <input
+          type="text"
+          id="subject"
+          name="subject"
+          required
+          minlength="3"
+          maxlength="60"
+          placeholder="Your Subject"
+          class="w-full text-black text-2xl sm:text-3xl p-3 rounded-xl border border-solid border-slate-900 dark:border-none"
+        />
+        <label for="message">Message:</label>
+        <textarea
+          name="message"
+          id="message"
+          cols="30"
+          rows="10"
+          placeholder="Your Message"
+          required
+          class="w-full text-black text-2xl sm:text-3xl p-3 rounded-xl border border-solid border-slate-900 dark:border-none"
+        ></textarea>
+        <button
+          class="bg-teal-700 hover:bg-teal-600 active:bg-teal-500 text-white p-3 w-48 rounded-xl border border-solid border-slate-900 dark:border-none"
+        >
+          Submit
+        </button>
+      </form>
+    </section>
+  </body>
+</html>
