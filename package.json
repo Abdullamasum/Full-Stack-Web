@@ -4,7 +4,7 @@
   "description": "Frontend-html,css,java-cript Backend- node & express js DB- mysql",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
