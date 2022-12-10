@@ -1,16 +1,14 @@
-// Controller
 "use strict";
 const userModel = require("../models/userModel");
-const users = userModel.user;
 
-const user_list_get = (req, res) => {
+const getUsers = async (req, res) => {
+  const users = await userModel.getAllUsers(res);
   res.json(users);
 };
 
-const getUser = (req, res) => {
-  const user = users.filter((user) => {
-    return req.params.user_id == user.id;
-  })[0];
+const getUser = async (req, res) => {
+  // choose only one object with matching id
+  const user = await userModel.getUserById(req.params.userId, res);
   if (user) {
     res.json(user);
   } else {
@@ -18,7 +16,24 @@ const getUser = (req, res) => {
   }
 };
 
+const createUser = async (req, res) => {
+  console.log("Creating a new user:", req.body);
+  const newUser = req.body;
+  const result = await userModel.addUser(newUser, res);
+  res.status(201).json({ userId: result });
+};
+
+const modifyUser = (req, res) => {
+  // TODO: add functionality & data model
+};
+const deleteUser = (req, res) => {
+  // TODO: add functionality & data model
+};
+
 module.exports = {
-  user_list_get,
   getUser,
+  getUsers,
+  modifyUser,
+  createUser,
+  deleteUser,
 };

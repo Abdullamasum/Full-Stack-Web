@@ -1,36 +1,60 @@
-// Controller
 "use strict";
+const { rawListeners } = require("../database/db");
 const productModel = require("../models/productModel");
-const products = productModel.product;
 
-const product_list_get = (req, res) => {
+const getProducts = async (req, res) => {
+  const products = await productModel.getAllProducts(res);
   res.json(products);
 };
 
-const getProduct = (req, res) => {
-  const product = products.filter((product) => {
-    return req.params.product_id == product.product_id;
-  })[0];
+const getProduct = async (req, res) => {
+  // choose only one object with matching id
+  const product = await productModel.getProductById(res, req.params.productId);
   if (product) {
     res.json(product);
   } else {
     res.sendStatus(404);
   }
 };
-//ceating a product
-const createProduct = (req, res) => {
-  const message = `productName:${req.body.product_name}`;
-  res.send("product info" + message);
+
+const createProduct = async (req, res) => {
+  const product = req.body;
+  product.product_media = req.file.product_media;
+  console.log("creating a new product:", product);
+  const productId = await productModel.addProduct(product, res);
+  res.status(201).json({ productId });
 };
-//Updating product
-const modifyProduct = (req, res) => {};
-//deleting a product
-const deleteProduct = (req, res) => {};
+
+const modifyProduct = async (req, res) => {
+  const product = req.body;
+  if (req.params.productId) {
+    product.product_id = req.params.productId;
+  }
+  const result = await productModel.updateProductById(product, res);
+  if (result.affectedRows > 0) {
+    res.json({ message: "product modified: " + product.product_id });
+  } else {
+    res.status(404).json({ message: "nothing changed" });
+  }
+};
+
+const deleteProduct = async (req, res) => {
+  const result = await productModel.deleteProductById(
+    req.params.productId,
+    res
+  );
+  console.log("product deleted", result);
+  if (result.affectedRows > 0) {
+    res.json({ message: "product deleted" });
+  } else {
+    res.status(404).json({ message: "product was already deleted" });
+  }
+};
 
 module.exports = {
-  product_list_get,
   getProduct,
-  createProduct,
+  getProducts,
   modifyProduct,
+  createProduct,
   deleteProduct,
 };
