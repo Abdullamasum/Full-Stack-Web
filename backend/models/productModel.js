@@ -2,20 +2,18 @@
 "use strict";
 const product = [
   {
-    id: "1",
-    name: "Frank",
-    age: "6",
-    weight: "5",
-    owner: "1",
-    filename: "http://placekitten.com/400/300",
+    product_id: "1",
+    product_name: "Frank",
+    product_category: "Kitchen applience",
+    product_details: "good condition",
+    product_media: "http://placekitten.com/400/300",
   },
   {
-    id: "2",
-    name: "James",
-    age: "4",
-    weight: "11",
-    owner: "2",
-    filename: "http://placekitten.com/400/302",
+    product_id: "2",
+    product_name: "David",
+    product_category: "Home applience",
+    product_details: "little scratch",
+    product_media: "http://placekitten.com/400/302",
   },
 ];
 

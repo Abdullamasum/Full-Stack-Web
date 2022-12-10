@@ -2,20 +2,24 @@
 "use strict";
 const user = [
   {
-    id: "1",
-    name: "Frank",
-    age: "6",
-    weight: "5",
-    owner: "1",
-    filename: "http://placekitten.com/400/300",
+    email: "someone@example.com",
+    first_name: "James",
+    password: "1234",
+    phone: "1345665",
+    street: "Juustinentie",
+    postal_code: "00410",
+    city: "Helsinki",
+    country: "suomi",
   },
   {
-    id: "2",
-    name: "James",
-    age: "4",
-    weight: "11",
-    owner: "2",
-    filename: "http://placekitten.com/400/302",
+    email: "someone1@example.com",
+    first_name: "Mac",
+    password: "123467",
+    phone: "134566577",
+    street: "JuustinentiVijelentie",
+    postal_code: "00430",
+    city: "Helsinki",
+    country: "suomi",
   },
 ];
 
