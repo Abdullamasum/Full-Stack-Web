@@ -2,6 +2,8 @@
 const { rawListeners } = require("../database/db");
 const productModel = require("../models/productModel");
 
+// const products = productModel.products;
+
 const getProducts = async (req, res) => {
   const products = await productModel.getAllProducts(res);
   res.json(products);

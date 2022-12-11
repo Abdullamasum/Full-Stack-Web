@@ -33,10 +33,12 @@ const addProduct = async (product, res) => {
     //console.log('addCat():', cat)
     const sql = "INSERT INTO product VALUES (null, ?, ?, ?, ?, ?)";
     const values = [
-      product.product_id,
+      // product.product_id,
+
       product.product_user_id,
       product.product_details,
       product.product_name,
+      product.product_media,
       product.product_category,
     ];
     const [result] = await promisePool.query(sql, values);
@@ -64,13 +66,15 @@ const updateProductById = async (product, res) => {
   try {
     console.log("Modify product:", product);
     const sql =
-      "UPDATE product SET product_name = ?,  product_id= ?, product_details = ?, product_category = ? " +
+      "UPDATE product SET product_details = ?, product_name = ?, product_media = ?, product_category = ? " +
       "WHERE product_id = ?";
     const values = [
-      product.product_id,
-      product.product_name,
+      // product.product_id,
       product.product_details,
+      product.product_name,
+      product.product_media,
       product.product_category,
+      product.productId,
     ];
     const [rows] = await promisePool.query(sql, values);
     return rows;

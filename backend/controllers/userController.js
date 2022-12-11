@@ -2,8 +2,8 @@
 const userModel = require("../models/userModel");
 
 const getUsers = async (req, res) => {
-  const users = await userModel.getAllUsers(res);
-  res.json(users);
+  const register = await userModel.getAllUsers(res);
+  res.json(register);
 };
 
 const getUser = async (req, res) => {
