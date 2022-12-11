@@ -21,7 +21,7 @@ const getProduct = async (req, res) => {
 
 const createProduct = async (req, res) => {
   const product = req.body;
-  product.product_media = req.file.product_media;
+  product.product_media = req.file.filename;
   console.log("creating a new product:", product);
   const productId = await productModel.addProduct(product, res);
   res.status(201).json({ productId });

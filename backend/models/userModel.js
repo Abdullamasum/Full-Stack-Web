@@ -4,7 +4,7 @@ const promisePool = pool.promise();
 
 const getAllUsers = async (res) => {
   try {
-    const sql = "select first_name, phone, city, country, from register where email = 'John@example.com'";
+    const sql = "select first_name, phone, city, country from register where email != 123";
     const [rows] = await promisePool.query(sql);
     return rows;
   } catch (e) {
@@ -12,11 +12,10 @@ const getAllUsers = async (res) => {
     res.status(500).send(e.message);
   }
 };
-const getUserById = async (id, res) => {
+const getUserById = async (email, res) => {
   try {
     const sql =
-      "select first_name, phone, city, country, from register where email = 'John@example.com'"
-      + id;
+      "select first_name, phone, city, country, from register where email !=123" + email;
     const [rows] = await promisePool.query(sql);
     return rows[0];
   } catch (e) {
@@ -26,8 +25,8 @@ const getUserById = async (id, res) => {
 };
 const addUser = async (register, res) => {
   try {
-    const sql = "INSERT INTO register VALUES (null, ?, ?, ?, ?, ?, ?, ?)";
-    const values = [register.password, register.first_name, register.phone, register.street, register.city, register.postal_code, register.country];
+    const sql = "INSERT INTO register VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    const values = [register.email, register.password, register.first_name, register.phone, register.street, register.city, register.postal_code, register.country];
     const [result] = await promisePool.query(sql, values);
     return result.insertId;
   } catch (e) {
