@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <meta charset="utf8" />
+    <title>Sell</title>
+    <link href="./css/sell.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- <h1>List of Products</h1> -->
+
+      <!-- <ul>
+         js creates list here 
+        <li><a href="buy.html">Frontpage</a></li>
+                <li><a href="signin.html">Add user</a></li>
+                <li><a href="add-cat.html">Add cat</a></li>
+        
+      </ul> -->
+
+      <h3>Add Product</h3>
+
+      <form
+        action="http://localhost:3000/product"
+        method="post"
+        class="light-border"
+        enctype="multipart/form-data" id="addProductForm"
+      >
+        
+        <input
+          class="light-border"
+          type="varchar"
+          name="name"
+          placeholder="Name"
+        />
+        <input
+          class="light-border"
+          type="varchar"
+          name="details"
+          placeholder="Details"
+        />
+        <input
+          class="light-border"
+          type="varchar"
+          name="category"
+          placeholder="Category"
+        />
+        <input
+          class="light-border"
+          type="text"
+          name="filename"
+          placeholder="Filename"
+        />
+        
+        <button class="light-border" type="submit">Save</button>
+      </form>
+    </div>
+
+    <script src="./js/sell.js"></script>
+  </body>
+</html>
