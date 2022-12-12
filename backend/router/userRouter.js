@@ -1,4 +1,4 @@
-// Router
+/* // Router
 "use strict";
 const express = require("express");
 const router = express.Router();
@@ -8,3 +8,4 @@ router.get("/", userController.user_list_get);
 router.get("/:user_id", userController.getUser);
 
 module.exports = router;
+ */

@@ -1,4 +1,4 @@
-"use strict";
+/* "use strict";
 const userModel = require("../models/userModel");
 
 const getUsers = async (req, res) => {
@@ -37,3 +37,4 @@ module.exports = {
   createUser,
   deleteUser,
 };
+ */

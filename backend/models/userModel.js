@@ -1,4 +1,4 @@
-"use strict";
+/* "use strict";
 const pool = require("../database/db");
 const promisePool = pool.promise();
 
@@ -42,3 +42,4 @@ module.exports = {
   getUserById,
   addUser,
 };
+ */
