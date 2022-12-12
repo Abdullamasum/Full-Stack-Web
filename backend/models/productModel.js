@@ -30,7 +30,7 @@ const getProductById = async (res, productId) => {
 
 const addProduct = async (product, res) => {
   try {
-    //console.log('addCat():', cat)
+    //console.log('addProduct():', product)
     const sql = "INSERT INTO product VALUES (null, ?, ?, ?, ?, ?)";
     const values = [
       // product.product_id,
