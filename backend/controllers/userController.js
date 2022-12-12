@@ -1,5 +1,6 @@
 "use strict";
 const userModel = require("../models/userModel");
+const {validationResult} = require('express-validator');
 
 const getUsers = async (req, res) => {
   const register = await userModel.getAllUsers(res);
@@ -29,6 +30,10 @@ const modifyUser = (req, res) => {
 const deleteUser = (req, res) => {
   // TODO: add functionality & data model
 };
+const checkToken = (req, res) => {
+  delete req.user.password;
+  res.json({user: req.user});
+};
 
 module.exports = {
   getUser,
@@ -36,4 +41,5 @@ module.exports = {
   modifyUser,
   createUser,
   deleteUser,
+  checkToken,
 };

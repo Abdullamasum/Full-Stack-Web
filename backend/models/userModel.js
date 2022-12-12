@@ -34,9 +34,22 @@ const addUser = async (register, res) => {
     res.status(500).send(e.message);
   }
 };
+const getUserLogin = async (params) => {
+  try {
+    console.log(params);
+    const [rows] = await promisePool.execute(
+        'SELECT * FROM register WHERE email = ?;',
+        params);
+    return rows;
+  } catch (e) {
+    console.log('error', e.message);
+  }
+};
+
 
 module.exports = {
   getAllUsers,
   getUserById,
   addUser,
+  getUserLogin,
 };
