@@ -21,20 +21,29 @@ const getProduct = async (req, res) => {
 
 const createProduct = async (req, res) => {
   const product = req.body;
-  product.product_media = req.file.filename;
+  product.filename = req.file.filename;
   console.log("creating a new product:", product);
   const productId = await productModel.addProduct(product, res);
   res.status(201).json({ productId });
 };
 
+// const createProduct = async(req, res) => {
+//   console.log('creating a new product', req.body, req.file);
+  
+//   const productId = await productModel.addProduct(req);
+//   const product = await productModel.getProductById(productId);
+//   res.send(product);
+
+// };
+
 const modifyProduct = async (req, res) => {
   const product = req.body;
   if (req.params.productId) {
-    product.product_id = req.params.productId;
+    product.id = req.params.productId;
   }
   const result = await productModel.updateProductById(product, res);
   if (result.affectedRows > 0) {
-    res.json({ message: "product modified: " + product.product_id });
+    res.json({ message: "product modified: " + product.id });
   } else {
     res.status(404).json({ message: "nothing changed" });
   }

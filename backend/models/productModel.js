@@ -4,9 +4,8 @@ const promisePool = pool.promise();
 
 const getAllProducts = async (res) => {
   try {
-    // TODO: do the LEFT (or INNER) JOIN to get owner's name as ownername (from wop_user table).
     const sql =
-      "select product_id, product_user_id, product_details, product_name, product_category from product join userinfo on product.product_user_id = userinfo.userid";
+      "select id, user_id, details, name, category from product join userinfo on product.user_id = userinfo.userid";
     const [rows] = await promisePool.query(sql);
     return rows;
   } catch (e) {
@@ -18,7 +17,7 @@ const getAllProducts = async (res) => {
 const getProductById = async (res, productId) => {
   try {
     const [rows] = await promisePool.query(
-      "SELECT * FROM product WHERE product_id = ?",
+      "SELECT * FROM product WHERE id = ?",
       [productId]
     );
     return rows[0];
@@ -31,15 +30,14 @@ const getProductById = async (res, productId) => {
 const addProduct = async (product, res) => {
   try {
     //console.log('addProduct():', product)
-    const sql = "INSERT INTO product VALUES (null, ?, ?, ?, ?, ?)";
+    const sql = "INSERT INTO product VALUES (?, ?, ?, ?, ?, ?)";
     const values = [
-      // product.product_id,
-
-      product.product_user_id,
-      product.product_details,
-      product.product_name,
-      product.product_media,
-      product.product_category,
+      product.id,
+      product.user_id,
+      product.details,
+      product.name,
+      product.filename,
+      product.category,
     ];
     const [result] = await promisePool.query(sql, values);
     return result.insertId;
@@ -49,10 +47,29 @@ const addProduct = async (product, res) => {
   }
 };
 
+// const addProduct = async(req) => {
+//   try {
+//     const [rows, fields] = await promisePool.query(
+//         'INSERT INTO product (product_user_id, product_details, product_name, product_media, product_category) VALUES (?, ?, ?, ?, ?);',
+//         [
+        
+//           req.body.product_user_id,
+//           req.body.product_details,
+//           req.body.product_name,
+//           req.body.product_media,
+//           req.body.product_category]);
+//     console.log('productModel add:', rows, fields);
+//     return rows.insertId;
+//   } catch (e) {
+//     console.error('productModel addProduct:', e);
+//     return 0;
+//   }
+// };
+
 const deleteProductById = async (productId, res) => {
   try {
     const [rows] = await promisePool.query(
-      "DELETE FROM product WHERE product_id = ?",
+      "DELETE FROM product WHERE id = ?",
       [productId]
     );
     return rows;
@@ -66,15 +83,14 @@ const updateProductById = async (product, res) => {
   try {
     console.log("Modify product:", product);
     const sql =
-      "UPDATE product SET product_details = ?, product_name = ?, product_media = ?, product_category = ? " +
-      "WHERE product_id = ?";
+      "UPDATE product SET details = ?, name = ?, filename = ?, category = ? " +
+      "WHERE id = ?";
     const values = [
-      // product.product_id,
-      product.product_details,
-      product.product_name,
-      product.product_media,
-      product.product_category,
-      product.productId,
+      product.details,
+      product.name,
+      product.filename,
+      product.category,
+
     ];
     const [rows] = await promisePool.query(sql, values);
     return rows;
