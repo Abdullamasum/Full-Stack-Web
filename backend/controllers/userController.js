@@ -1,9 +1,10 @@
 /* "use strict";
 const userModel = require("../models/userModel");
+const {validationResult} = require('express-validator');
 
 const getUsers = async (req, res) => {
-  const users = await userModel.getAllUsers(res);
-  res.json(users);
+  const register = await userModel.getAllUsers(res);
+  res.json(register);
 };
 
 const getUser = async (req, res) => {
@@ -29,6 +30,10 @@ const modifyUser = (req, res) => {
 const deleteUser = (req, res) => {
   // TODO: add functionality & data model
 };
+const checkToken = (req, res) => {
+  delete req.user.password;
+  res.json({user: req.user});
+};
 
 module.exports = {
   getUser,
@@ -36,5 +41,6 @@ module.exports = {
   modifyUser,
   createUser,
   deleteUser,
+  checkToken,
 };
  */
