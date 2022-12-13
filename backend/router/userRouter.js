@@ -1,4 +1,4 @@
-// Router
+/* // Router
 "use strict";
 const express = require("express");
 const router = express.Router();
@@ -15,3 +15,4 @@ router.put("/", userController.modifyUser);
 router.delete("/", userController.deleteUser);
 
 module.exports = router;
+ */
