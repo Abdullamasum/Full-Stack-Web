@@ -1,7 +1,8 @@
 "use strict";
 const { rawListeners } = require("../database/db");
 const productModel = require("../models/productModel");
-
+const {validationResult} = require('express-validator');
+const {makeThumbnail, getCoordinates} = require('../utils/image');
 // const products = productModel.products;
 
 const getProducts = async (req, res) => {
@@ -20,11 +21,23 @@ const getProduct = async (req, res) => {
 };
 
 const createProduct = async (req, res) => {
-  const product = req.body;
-  product.filename = req.file.filename;
-  console.log("creating a new product:", product);
-  const productId = await productModel.addProduct(product, res);
-  res.status(201).json({ productId });
+  const errors = validationResult(req);
+  if (!req.file) {
+    res.status(400).json({message: 'file missing or invalid'});
+  }
+    else if (errors.isEmpty()) {
+      const product = req.body;
+      await makeThumbnail(req.file.path, req.file.filename);
+      product.coords = JSON.stringify(await getCoordinates(req.file.path));
+
+      product.
+      product.filename = req.file.filename;
+      console.log("creating a new product:", product);
+      const productId = await productModel.addProduct(product, res);
+      res.status(201).json({message: 'product created: ', productId });
+  } else {
+    console.log('validation errors', errors);
+    res.status(400).json({message: 'product creation failed',});
 };
 
 // const createProduct = async(req, res) => {
@@ -34,7 +47,7 @@ const createProduct = async (req, res) => {
 //   const product = await productModel.getProductById(productId);
 //   res.send(product);
 
-// };
+ };
 
 const modifyProduct = async (req, res) => {
   const product = req.body;
