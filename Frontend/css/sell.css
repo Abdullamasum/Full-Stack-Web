@@ -4,8 +4,14 @@ body {
   padding: 0;
 
   font-family: Verdana;
+  background: #a1c3a1;
 }
-
+#header {
+  padding-top: 38px;
+  padding-bottom: 18px;
+  text-align: center;
+  font-size: 38px;
+}
 .container {
   max-width: 40em;
 
@@ -14,7 +20,7 @@ body {
 
 .light-border {
   border-radius: 8px;
-
+  font-size: 18px;
   border: 1px solid #ccc;
 
   padding: 1em;
@@ -60,7 +66,8 @@ button {
 }
 
 button {
-  background-color: #ccc;
-
+  background-color: rgb(152, 49, 49);
+  font-weight: 600;
+  font-size: 28px;
   color: #fff;
 }

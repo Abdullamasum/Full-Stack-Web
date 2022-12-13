@@ -1,73 +1,23 @@
-// "use strict";
-
-// const url = "http://localhost:3000"; // change url when uploading to server
-
-// // const ul = document.querySelector("ul");
-
-
-// const getProduct = async () => {
-//   const response = await fetch(url + "/product");
-
-//   const products = await response.json();
-
-//   for (const product of products) {
-//     const user = await getUser(product.name);
-
-//     ul.innerHTML += `
-
-// <li>
-// <p>Categorty: ${products.category}kg</p>
-// <h2>${products.name}</h2>
-
-// <figure>
-
-// <img src="${products.filename}" class="resp">
-
-// </figure>
-
-// <p>Details: ${products.details}</p>
-
-
-
-
-
-// </li>
-
-// `;
-//   }
-// };
-
-// const getUser = async (id) => {
-//   const response = await fetch(url + "/user/" + id);
-
-//   const user = await response.json();
-
-//   return user;
-// };
-
-// getCat();
-
-'use strict';
-const url = 'http://localhost:3000'; // change url when uploading to server
+"use strict";
+const url = "http://localhost:3000"; // change url when uploading to server
 
 // select existing html elements
-const addForm = document.querySelector('#addProductForm');
-// const userList = document.querySelector('.add-owner');
+const addProductForm = document.querySelector("#addProductForm");
+const userList = document.querySelector(".add-owner");
 
 // submit add cat form
-addForm.addEventListener('submit', async (evt) => {
+addProductForm.addEventListener("submit", async (evt) => {
   evt.preventDefault();
-  const fd = new FormData(addForm);
+  const fd = new FormData(addProductForm);
   const fetchOptions = {
-    method: 'POST',
+    method: "POST",
     headers: {
-      Authorization: 'Bearer ' + sessionStorage.getItem('token'),
+      Authorization: "Bearer " + sessionStorage.getItem("token"),
     },
     body: fd,
   };
-  const response = await fetch(url + '/cat', fetchOptions);
+  const response = await fetch(url + "/product", fetchOptions);
   const json = await response.json();
   alert(json.message);
-  location.href = 'front.html';
+  location.href = "buy.html";
 });
-
