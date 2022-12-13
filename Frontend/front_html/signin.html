@@ -19,7 +19,10 @@
                      <div class="signin-center">
                       <h4 class="signin-header">Finder</h4>
                     </div>
-                    <form>
+                    
+                      <form id="login-form" class="light-border" 
+                      action="http://localhost:3000/auth/login" 
+                      method="post">
                       <p class="mb-4">Please login to your account</p>
                       <div class="mb-4">
                         <input
@@ -39,7 +42,7 @@
                       </div>
                       <div class="signin-button1">
                         <button
-                          class="signin-button2" type="button" data-mdb-ripple="true" data-mdb-ripple-color="light"
+                          class="signin-button2" type="submit" data-mdb-ripple="true" data-mdb-ripple-color="light"
                           style="background: linear-gradient(to right, #ee7724,
                               #d8363a,
                               #dd3675,
