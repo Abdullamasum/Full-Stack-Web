@@ -19,5 +19,5 @@ addProductForm.addEventListener("submit", async (evt) => {
   const response = await fetch(url + "/product", fetchOptions);
   const json = await response.json();
   alert(json.message);
-  location.href = "front_html/buy.html";
+  location.href = "buy.html";
 });
