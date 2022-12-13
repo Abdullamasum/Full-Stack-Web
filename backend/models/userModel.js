@@ -1,10 +1,10 @@
-/* "use strict";
+"use strict";
 const pool = require("../database/db");
 const promisePool = pool.promise();
 
 const getAllUsers = async (res) => {
   try {
-    const sql = "select first_name, phone, city, country from register where email != 123";
+    const sql = "SELECT user_id, name, email, role FROM register";
     const [rows] = await promisePool.query(sql);
     return rows;
   } catch (e) {
@@ -12,10 +12,10 @@ const getAllUsers = async (res) => {
     res.status(500).send(e.message);
   }
 };
-const getUserById = async (email, res) => {
+const getUserById = async (id, res) => {
   try {
     const sql =
-      "select first_name, phone, city, country, from register where email !=123" + email;
+      "SELECT user_id, name, email, role FROM register" + "WHERE user_id=" + id;
     const [rows] = await promisePool.query(sql);
     return rows[0];
   } catch (e) {
@@ -23,10 +23,29 @@ const getUserById = async (email, res) => {
     res.status(500).send(e.message);
   }
 };
-const addUser = async (register, res) => {
+const getUserLogin = async (user) => {
   try {
-    const sql = "INSERT INTO register VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-    const values = [register.email, register.password, register.first_name, register.phone, register.street, register.city, register.postal_code, register.country];
+    console.log("getUserLogin()", user);
+    const [rows] = await promisePool.execute(
+      "SELECT * FROM register WHERE email = ?;",
+      user
+    );
+    return rows;
+  } catch (e) {
+    console.error("error", e.message);
+    res.status(500).send(e.message);
+  }
+};
+const addUser = async (user, res) => {
+  try {
+    const sql = "INSERT INTO register VALUES (null, ?, ?, ?, ?, ?)";
+    const values = [
+      user.name,
+      user.email,
+      user.password,
+      user.address,
+      user.role,
+    ];
     const [result] = await promisePool.query(sql, values);
     return result.insertId;
   } catch (e) {
@@ -34,23 +53,10 @@ const addUser = async (register, res) => {
     res.status(500).send(e.message);
   }
 };
-const getUserLogin = async (params) => {
-  try {
-    console.log(params);
-    const [rows] = await promisePool.execute(
-        'SELECT * FROM register WHERE email = ?;',
-        params);
-    return rows;
-  } catch (e) {
-    console.log('error', e.message);
-  }
-};
-
 
 module.exports = {
   getAllUsers,
   getUserById,
-  addUser,
   getUserLogin,
+  addUser,
 };
- */
