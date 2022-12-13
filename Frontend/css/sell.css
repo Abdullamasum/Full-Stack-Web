@@ -6,11 +6,12 @@ body {
   font-family: Verdana;
   background: #a1c3a1;
 }
-#header {
+#sell-header {
   padding-top: 38px;
   padding-bottom: 18px;
   text-align: center;
   font-size: 38px;
+  color: #4d3b8d;
 }
 .container {
   max-width: 40em;

@@ -3,9 +3,35 @@
     <meta charset="utf8" />
     <title>Sell</title>
     <link href="./css/sell.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/Frontend/css/style.css" />
+    <link rel="stylesheet" href="/Frontend/css/buy.css" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    />
   </head>
 
   <body>
+    <section id="header" class="section-p1">
+      <a href="#"
+        ><img src="img/finder-logo-white.png" class="logo" alt=""
+      /></a>
+
+      <div>
+        <ul id="navbar">
+          <li><a class="active" href="index.html" class="">Home</a></li>
+          <li><a href="about.html" class="">About</a></li>
+          <li><a href="contact.html" class="">Contact</a></li>
+          <li><a href="signin.html" class="">Sign In</a></li>
+          <li><a href="signup.html" class="">Sign Up Free</a></li>
+          <a href="#" id="close"><i class="far fa-times"></i></a>
+        </ul>
+      </div>
+      <div id="mobile">
+        <i id="bar" class="fas fa-bars"></i>
+      </div>
+      <!-- Mobile Menu -->
+    </section>
     <div class="container">
       <!-- <h1>List of Products</h1> -->
 
@@ -17,7 +43,7 @@
         
       </ul> -->
 
-      <h3 id="header">Post Your Product</h3>
+      <h3 id="sell-header">Post Your Product</h3>
 
       <form
         action="http://localhost:3000/product"
@@ -56,5 +82,6 @@
     </div>
 
     <script src="./js/sell.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
