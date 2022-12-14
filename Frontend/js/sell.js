@@ -5,7 +5,7 @@ const url = "http://localhost:3000"; // change url when uploading to server
 const addProductForm = document.querySelector("#addProductForm");
 const userList = document.querySelector(".add-owner");
 
-// submit add cat form
+// submit add product form
 addProductForm.addEventListener("submit", async (evt) => {
   evt.preventDefault();
   const fd = new FormData(addProductForm);
