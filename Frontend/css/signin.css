@@ -1,9 +1,12 @@
+body {
+  background: #a1c3a1;
+}
 .signin-1 {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: rgb(229 231 235);
+  background-color: rgb(65, 103, 180);
 }
 
 .signin-2 {
@@ -72,6 +75,7 @@
   padding-bottom: 0.25rem;
 }
 .signin-button2 {
+  background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
   display: inline-block;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
@@ -107,6 +111,7 @@
   color: rgb(220 38 38);
 }
 .signin-description {
+  background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
   display: flex;
   align-items: center;
   border-bottom-right-radius: 0.5rem;

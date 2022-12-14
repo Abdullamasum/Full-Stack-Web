@@ -5,11 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/Frontend/css/signup.css" />
+    <link rel="stylesheet" href="/Frontend/css/style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    />
     <title>Sign up form</title>
   </head>
   <body>
-    <section id="signup" class="signup-1">
-      <div id="form" class="signup-form">
+    <section id="header" class="section-p1">
+      <a href="#"
+        ><img src="img/finder-logo-white.png" class="logo" alt=""
+      /></a>
+
+      <div>
+        <ul id="navbar">
+          <li><a class="" href="index.html" class="">Home</a></li>
+          <li><a href="about.html" class="">About</a></li>
+          <li><a href="contact.html" class="">Contact</a></li>
+          <li><a href="signin.html" class="">Sign In</a></li>
+          <li><a href="signup.html" class="active">Sign Up Free</a></li>
+          <a href="#" id="close"><i class="far fa-times"></i></a>
+        </ul>
+      </div>
+      <div id="mobile">
+        <i id="bar" class="fas fa-bars"></i>
+      </div>
+      <!-- Mobile Menu -->
+    </section>
+    <section id="signUp" class="signup-1">
+      <div id="form" class="signup-form1">
         <form action="index.html">
           <h2 class="form-1">Register</h2>
           <!-- full name -->
@@ -19,8 +45,15 @@
           <label for="fname" class="text-sm">Name</label><br />
           <input type="text" name="" id="fname" class="form-name" /> -->
 
-          <label for="name" class="text-sm">Name</label><br />
-          <input type="name" name="" id="name" class="email-pass" />
+          <label for="name" class="text-sm1">Name</label><br />
+          <input
+            type="name"
+            name=""
+            id="name"
+            class="email-pass1"
+            placeholder="name"
+            required
+          />
 
           <!-- last name -->
           <!-- <div id="lastName" class="form-fname">
@@ -29,14 +62,32 @@
             </div> -->
 
           <!-- email -->
-          <label for="email" class="text-sm">Email</label><br />
-          <input type="emial" name="" id="email" class="email-pass" />
+          <label for="email" class="text-sm1">Email</label><br />
+          <input
+            type="emial"
+            name=""
+            id="email"
+            class="email-pass1"
+            placeholder="Email"
+          />
           <!-- password -->
-          <label for="password" class="text-sm">Password</label><br />
-          <input type="password" name="" id="password" class="email-pass" />
+          <label for="password" class="text-sm1">Password</label><br />
+          <input
+            type="password"
+            name=""
+            id="password"
+            class="email-pass1"
+            placeholder="Password"
+          />
           <!-- confirm password -->
-          <label for="address" class="text-sm">Address</label><br />
-          <input type="emial" name="" id="email" class="email-pass" />
+          <label for="address" class="text-sm1">Address</label><br />
+          <input
+            type="emial"
+            name=""
+            id="email"
+            class="email-pass1"
+            placeholder="AAddress"
+          />
           <!-- radio buttons for gender -->
           <!-- <div id="gender" class="gender-selector">
             <p class="mt-2">Gender</p>
@@ -61,7 +112,8 @@
             /><label for="other">Other</label>
           </div> -->
           <!-- Sign up / submit button -->
-          <input type="submit" name="" id="signUp" class="signup-button" />
+          <!-- <input type="submit" name="" id="signUp1" class="signup-button1" /> -->
+          <a href="signin.html"></a><button class="signup-button1" type="button">submit</button></a>
           <br />
           <p class="signup-text">
             Already have a account?
@@ -70,5 +122,6 @@
         </form>
       </div>
     </section>
+    <script src="script.js"></script>
   </body>
 </html>

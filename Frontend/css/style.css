@@ -131,6 +131,8 @@ a:hover {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin-bottom: 100px;
+  margin-top: 50px;
 }
 .icon-container {
   height: auto;
