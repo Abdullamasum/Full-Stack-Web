@@ -1,6 +1,6 @@
 node_modules/
-
-# ignore content of uploads folder
-uploads/*
-# except one (empty) file to have the folder in version control
-!uploads/.gitkeep
+backend/uploads/*
+!backend/uploads/.gitkeep
+backend/thumbnails/*
+!backend/thumbnails/.gitkeep
+.env

@@ -11,6 +11,10 @@
       rel="stylesheet"
       href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
     />
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.5.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
     <title>Sign In</title>
   </head>
   <body>
@@ -41,18 +45,18 @@
             <div class="signin-4">
               <div class="signin-5">
                 <div class="signin-6">
-                  <div class="signin-7">
+                  <div class="signin-7" id="login-wrapper">
                     <div class="signin-center">
                       <h4 class="signin-header">Finder</h4>
                     </div>
-                    <form>
+                    <form id="login-form">
                       <p class="mb-4">Please login to your account</p>
                       <div class="mb-4">
                         <input
                           type="text"
                           class="signin-input"
-                          id="exampleFormControlInput1"
-                          placeholder="Username"
+                          name="username"
+                          placeholder="Email"
                           required
                         />
                       </div>
@@ -60,13 +64,17 @@
                         <input
                           type="password"
                           class="signin-input"
-                          id="exampleFormControlInput1"
+                          name="password"
                           placeholder="Password"
                           required
                         />
                       </div>
                       <div class="signin-button1">
-                        <button class="signin-button2" type="button">
+                        <button
+                          action="sell.html"
+                          class="signin-button2"
+                          type="submit"
+                        >
                           sign in
                         </button>
                         <a class="" href="#!">Forgot password?</a>
@@ -93,5 +101,10 @@
       </div>
     </section>
     <script src="script.js"></script>
+    <script src="./js/serialize.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.5.1/mapbox-gl.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/2.0.2/luxon.min.js"></script>
+    <script src="./js/mapbox.js"></script>
+    <script src="./js/sell.js"></script>
   </body>
 </html>

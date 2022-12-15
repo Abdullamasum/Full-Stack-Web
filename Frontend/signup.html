@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/Frontend/css/signup.css" />
     <link rel="stylesheet" href="/Frontend/css/style.css" />
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.5.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
 
     <link
       rel="stylesheet"
@@ -35,8 +39,8 @@
       <!-- Mobile Menu -->
     </section>
     <section id="signUp" class="signup-1">
-      <div id="form" class="signup-form1">
-        <form action="index.html">
+      <div id="login-wrapper" class="signup-form1">
+        <form action="signin.html" id="add-user-form">
           <h2 class="form-1">Register</h2>
           <!-- full name -->
 
@@ -47,9 +51,9 @@
 
           <label for="name" class="text-sm1">Name</label><br />
           <input
-            type="name"
-            name=""
-            id="name"
+            type="text"
+            name="name"
+            pattern=".{3,}"
             class="email-pass1"
             placeholder="name"
             required
@@ -65,16 +69,16 @@
           <label for="email" class="text-sm1">Email</label><br />
           <input
             type="emial"
-            name=""
-            id="email"
+            name="email"
             class="email-pass1"
             placeholder="Email"
+            required
           />
           <!-- password -->
           <label for="password" class="text-sm1">Password</label><br />
           <input
             type="password"
-            name=""
+            name="passwd"
             id="password"
             class="email-pass1"
             placeholder="Password"
@@ -82,11 +86,11 @@
           <!-- confirm password -->
           <label for="address" class="text-sm1">Address</label><br />
           <input
-            type="emial"
-            name=""
+            type="text"
+            name="address"
             id="email"
             class="email-pass1"
-            placeholder="AAddress"
+            placeholder="Address"
           />
           <!-- radio buttons for gender -->
           <!-- <div id="gender" class="gender-selector">
@@ -113,7 +117,7 @@
           </div> -->
           <!-- Sign up / submit button -->
           <!-- <input type="submit" name="" id="signUp1" class="signup-button1" /> -->
-          <a href="signin.html"></a><button class="signup-button1" type="button">submit</button></a>
+          <button class="signup-button1" type="submit">submit</button>
           <br />
           <p class="signup-text">
             Already have a account?
@@ -123,5 +127,10 @@
       </div>
     </section>
     <script src="script.js"></script>
+    <script src="./js/serialize.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.5.1/mapbox-gl.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/2.0.2/luxon.min.js"></script>
+    <script src="./js/mapbox.js"></script>
+    <script src="./js/sell.js"></script>
   </body>
 </html>

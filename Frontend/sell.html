@@ -24,6 +24,10 @@
           <li><a href="contact.html" class="">Contact</a></li>
           <li><a href="signin.html" class="">Sign In</a></li>
           <li><a href="signup.html" class="">Sign Up Free</a></li>
+          <li id="log-out">
+            <p id="user-info"></p>
+            <button href="index.html" class="">Sign out</button>
+          </li>
           <a href="#" id="close"><i class="far fa-times"></i></a>
         </ul>
       </div>
@@ -46,29 +50,28 @@
       <h3 id="sell-header">Post Your Product</h3>
 
       <form
-        action="http://localhost:3000/product"
-        method="post"
         class="light-border"
         enctype="multipart/form-data"
-        id="addProductForm"
+        id="add-product-form"
       >
         <input
           class="light-border"
-          type="varchar"
+          type="text"
           name="name"
           placeholder="Name"
         />
         <input
           class="light-border"
-          type="varchar"
+          type="text"
           name="details"
           placeholder="Details"
         />
         <input
           class="light-border"
-          type="varchar"
-          name="filename"
-          placeholder="Filename"
+          type="file"
+          name="cat"
+          accept="image/*"
+          placeholder="Choose file"
         />
         <input
           class="light-border"
@@ -81,7 +84,11 @@
       </form>
     </div>
 
-    <script src="./js/sell.js"></script>
     <script src="script.js"></script>
+    <script src="./js/serialize.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.5.1/mapbox-gl.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/2.0.2/luxon.min.js"></script>
+    <script src="./js/mapbox.js"></script>
+    <script src="./js/sell.js"></script>
   </body>
 </html>
